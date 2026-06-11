@@ -3,6 +3,9 @@ import Icon from "@/components/ui/icon";
 const PHOTO_URL =
   "https://cdn.poehali.dev/projects/82d830f4-26d8-4d4b-a5aa-07d08f384fc3/files/9d5c3ee8-ea75-487f-9048-687331f9b3f0.jpg";
 
+const AVATAR_URL =
+  "https://cdn.poehali.dev/projects/82d830f4-26d8-4d4b-a5aa-07d08f384fc3/bucket/9c75056c-2bad-471e-bcca-dada5edf3eef.jpeg";
+
 const TG_LINK = "https://t.me/spartakmihailovich";
 
 const problems = [
@@ -54,14 +57,37 @@ const steps = [
 const Index = () => {
   return (
     <main className="font-body bg-stone-50 text-stone-900 min-h-screen">
+      {/* TOPBAR */}
+      <div className="bg-stone-950 text-stone-300 h-10 flex items-center">
+        <div className="w-full max-w-5xl mx-auto px-6 flex items-center justify-between">
+          <span className="text-xs whitespace-nowrap overflow-hidden text-ellipsis">
+            Спартак Захаров&nbsp;·&nbsp;Коуч по тревожности и принятию решений
+          </span>
+          <div className="hidden sm:flex items-center gap-4 text-xs shrink-0 ml-4">
+            <a href="tel:+79969971527" className="hover:text-white transition-colors whitespace-nowrap">
+              +7 996 997 15 27
+            </a>
+            <span className="text-stone-600">·</span>
+            <a href={TG_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors whitespace-nowrap">
+              @spartakmihailovich
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* HERO */}
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-stone-100 via-stone-50 to-white" />
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-20">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="order-2 md:order-1">
-              <div className="inline-block mb-6">
-                <span className="text-xs font-medium tracking-widest uppercase text-stone-400 border border-stone-200 px-4 py-2 rounded-full">
+              <div className="flex items-center gap-4 mb-6">
+                <img
+                  src={AVATAR_URL}
+                  alt="Спартак Захаров"
+                  className="w-[120px] h-[120px] rounded-full object-cover object-top border-2 border-stone-200 shadow-md shrink-0"
+                />
+                <span className="text-xs font-medium tracking-widest uppercase text-stone-400 border border-stone-200 px-4 py-2 rounded-full whitespace-nowrap">
                   Коучинг онлайн
                 </span>
               </div>
