@@ -7,6 +7,7 @@ const AVATAR_URL =
   "https://cdn.poehali.dev/projects/82d830f4-26d8-4d4b-a5aa-07d08f384fc3/bucket/9c75056c-2bad-471e-bcca-dada5edf3eef.jpeg";
 
 const TG_LINK = "https://t.me/spartakmihailovich";
+const MAX_LINK = "https://max.ru/u/f9LHodD0cOIhVJcfaneWMkhuYUbG6JYOu-Jqtd3dC5r1N86r_SYKr95qGHo";
 
 const problems = [
   {
@@ -81,13 +82,8 @@ const Index = () => {
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-20">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="order-2 md:order-1">
-              <div className="flex items-center gap-4 mb-6">
-                <img
-                  src={AVATAR_URL}
-                  alt="Спартак Захаров"
-                  className="w-[120px] h-[120px] rounded-full object-cover object-top border-2 border-stone-200 shadow-md shrink-0"
-                />
-                <span className="text-xs font-medium tracking-widest uppercase text-stone-400 border border-stone-200 px-4 py-2 rounded-full whitespace-nowrap">
+              <div className="inline-block mb-6">
+                <span className="text-xs font-medium tracking-widest uppercase text-stone-400 border border-stone-200 px-4 py-2 rounded-full">
                   Коучинг онлайн
                 </span>
               </div>
@@ -98,23 +94,34 @@ const Index = () => {
                 Помогаю успокоить ум, вернуть ясность и найти выход. Без
                 шаблонов, без магии, без лишних слов.
               </p>
-              <a
-                href={TG_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-stone-900 text-stone-50 px-8 py-4 rounded-full text-base font-medium hover:bg-stone-700 transition-colors duration-200"
-              >
-                <Icon name="Send" size={18} />
-                Написать в Telegram
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={TG_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-stone-900 text-stone-50 px-7 py-4 rounded-full text-base font-medium hover:bg-stone-700 transition-colors duration-200"
+                >
+                  <Icon name="Send" size={18} />
+                  Написать в Telegram
+                </a>
+                <a
+                  href={MAX_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-white text-stone-900 border border-stone-200 px-7 py-4 rounded-full text-base font-medium hover:bg-stone-50 transition-colors duration-200"
+                >
+                  <Icon name="MessageCircle" size={18} />
+                  Написать в Макс
+                </a>
+              </div>
             </div>
             <div className="order-1 md:order-2 flex justify-center md:justify-end">
               <div className="relative">
                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl shadow-stone-200">
                   <img
-                    src={PHOTO_URL}
+                    src={AVATAR_URL}
                     alt="Спартак Захаров — коуч"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-5 py-3 shadow-lg border border-stone-100">
@@ -252,15 +259,26 @@ const Index = () => {
                 Напишите мне — и мы договоримся о времени первой бесплатной
                 встречи
               </p>
-              <a
-                href={TG_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-stone-50 text-stone-900 px-8 py-4 rounded-full text-base font-medium hover:bg-white transition-colors duration-200"
-              >
-                <Icon name="Send" size={18} />
-                Записаться на сессию
-              </a>
+              <div className="flex flex-col gap-3 items-start md:items-end">
+                <a
+                  href={TG_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-stone-50 text-stone-900 px-8 py-4 rounded-full text-base font-medium hover:bg-white transition-colors duration-200"
+                >
+                  <Icon name="Send" size={18} />
+                  Записаться в Telegram
+                </a>
+                <a
+                  href={MAX_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-stone-800 text-stone-200 border border-stone-700 px-8 py-4 rounded-full text-base font-medium hover:bg-stone-700 transition-colors duration-200"
+                >
+                  <Icon name="MessageCircle" size={18} />
+                  Записаться в Макс
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -294,6 +312,15 @@ const Index = () => {
               >
                 <Icon name="Send" size={15} />
                 @spartakmihailovich
+              </a>
+              <a
+                href={MAX_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors text-sm"
+              >
+                <Icon name="MessageCircle" size={15} />
+                Макс
               </a>
             </div>
           </div>
