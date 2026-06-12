@@ -23,265 +23,250 @@ const steps = [
 
 const Index = () => {
   return (
-    <main style={{ fontFamily: "'Golos Text', system-ui, sans-serif" }} className="bg-white text-stone-900 min-h-screen">
-
-      {/* ШАПКА */}
-      <header style={{ height: "52px", background: "#111", color: "#ccc" }} className="flex items-center">
-        <div className="w-full max-w-5xl mx-auto px-5 flex items-center justify-between">
-          <span style={{ fontSize: "13px" }} className="whitespace-nowrap">
-            Спартак Захаров&nbsp;·&nbsp;Коуч
-          </span>
-          <div className="flex items-center gap-5" style={{ fontSize: "13px" }}>
-            <a
-              href="tel:+79969971527"
-              style={{ color: "#ccc" }}
-              className="hover:text-white transition-colors hidden sm:block whitespace-nowrap"
-            >
-              +7 996 997 15 27
-            </a>
-            <a
-              href={TG_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "#ccc" }}
-              className="hover:text-white transition-colors whitespace-nowrap"
-            >
-              Telegram
-            </a>
-          </div>
-        </div>
-      </header>
-
+    <main className="font-body bg-stone-50 text-stone-900 min-h-screen">
       {/* HERO */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="w-full max-w-5xl mx-auto px-5">
-          <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
-
-            {/* Фото + текст */}
-            <div className="flex-1">
-              {/* Аватар + имя */}
-              <div className="flex items-center gap-4 mb-8">
-                <img
-                  src={AVATAR_URL}
-                  alt="Спартак Захаров"
-                  style={{ width: "136px", height: "136px" }}
-                  className="rounded-full object-cover object-top border border-stone-200 shrink-0"
-                />
-                <div>
-                  <p className="font-semibold text-stone-900" style={{ fontSize: "16px" }}>
-                    Спартак Захаров
-                  </p>
-                  <p style={{ fontSize: "14px", color: "#78716c" }}>
-                    Коуч по тревожности и принятию решений
-                  </p>
-                </div>
+      <section className="relative min-h-screen flex items-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-stone-100 via-stone-50 to-white" />
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-20">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div className="order-2 md:order-1">
+              <div className="inline-block mb-6">
+                <span className="text-xs font-medium tracking-widest uppercase text-stone-400 border border-stone-200 px-4 py-2 rounded-full">
+                  Коучинг онлайн
+                </span>
               </div>
-
-              {/* Заголовок */}
-              <h1
-                style={{
-                  fontFamily: "'Cormorant', Georgia, serif",
-                  fontSize: "clamp(32px, 5vw, 44px)",
-                  fontWeight: 300,
-                  lineHeight: 1.2,
-                  color: "#1c1917",
-                }}
-                className="mb-5"
-              >
-                Когда внутри хаос,<br className="hidden sm:block" /> а решения не видно
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 leading-tight mb-6">
+                Когда внутри хаос, а решения не видно
               </h1>
-
-              {/* Подзаголовок */}
-              <p style={{ fontSize: "17px", color: "#57534e", lineHeight: 1.7 }} className="mb-8 max-w-lg">
-                Помогаю успокоить ум, вернуть ясность и найти выход.
-                Без шаблонов, без магии, без лишних слов.
+              <p className="text-lg text-stone-500 leading-relaxed mb-8 max-w-md">
+                Помогаю успокоить ум, вернуть ясность и найти выход. Без
+                шаблонов, без магии, без лишних слов.
               </p>
-
-              {/* Кнопки */}
-              <div className="flex flex-wrap gap-3 mb-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href={TG_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontSize: "15px", background: "#1c1917", color: "#fff" }}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-7 py-4 rounded-full text-base font-medium hover:bg-stone-700 transition-colors duration-200"
                 >
-                  <Icon name="Send" size={16} />
+                  <Icon name="Send" size={18} />
                   Написать в Telegram
                 </a>
                 <a
                   href={MAX_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ fontSize: "15px", background: "#fff", color: "#1c1917", border: "1px solid #d6d3d1" }}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium hover:bg-stone-50 transition-colors"
+                  className="inline-flex items-center justify-center gap-3 bg-white text-stone-900 border border-stone-200 px-7 py-4 rounded-full text-base font-medium hover:bg-stone-50 transition-colors duration-200"
                 >
-                  <Icon name="MessageCircle" size={16} />
+                  <Icon name="MessageCircle" size={18} />
                   Написать в Макс
                 </a>
               </div>
-
-              {/* Плашка — незаметная */}
-              <p style={{ fontSize: "12px", color: "#a8a29e" }}>
+              <p className="text-xs text-stone-400 mt-4">
                 Первые 20 минут — бесплатно
               </p>
+            </div>
+            <div className="order-1 md:order-2 flex justify-center md:justify-end">
+              <div className="relative">
+                <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden shadow-2xl shadow-stone-200">
+                  <img
+                    src={AVATAR_URL}
+                    alt="Спартак Захаров — коуч"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-5 py-3 shadow-lg border border-stone-100">
+                  <p className="text-xs text-stone-400 mb-0.5">Спартак Захаров</p>
+                  <p className="text-sm font-semibold text-stone-900">
+                    Коуч
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* КОГДА СТОИТ ОБРАТИТЬСЯ */}
-      <section className="py-16 md:py-20 bg-stone-50">
-        <div className="w-full max-w-5xl mx-auto px-5">
-          <h2
-            style={{ fontFamily: "'Cormorant', Georgia, serif", fontSize: "28px", fontWeight: 400, color: "#1c1917" }}
-            className="mb-10"
-          >
-            Когда стоит обратиться
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {/* PROBLEMS */}
+      <section className="py-24 bg-white">
+        <div className="w-full max-w-5xl mx-auto px-6">
+          <div className="mb-14">
+            <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-3">
+              Ситуации
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-light text-stone-900">
+              Когда стоит обратиться
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {problems.map((p) => (
               <div
                 key={p.title}
-                className="p-6 rounded-xl border border-stone-200 bg-white"
+                className="group p-7 rounded-2xl border border-stone-100 hover:border-stone-200 hover:shadow-md transition-all duration-200 bg-stone-50"
               >
-                <div className="mb-4">
-                  <Icon name={p.icon} size={20} className="text-stone-400" />
+                <div className="w-10 h-10 rounded-xl bg-stone-100 group-hover:bg-stone-200 flex items-center justify-center mb-5 transition-colors">
+                  <Icon name={p.icon} size={20} className="text-stone-600" />
                 </div>
-                <p style={{ fontSize: "15px", fontWeight: 600, color: "#1c1917" }} className="mb-1">
-                  {p.title}
-                </p>
-                <p style={{ fontSize: "14px", color: "#78716c", lineHeight: 1.6 }}>{p.desc}</p>
+                <h3 className="font-semibold text-stone-900 mb-2">{p.title}</h3>
+                <p className="text-sm text-stone-500 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* КАК ПРОХОДИТ СЕССИЯ */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="w-full max-w-5xl mx-auto px-5">
-          <h2
-            style={{ fontFamily: "'Cormorant', Georgia, serif", fontSize: "28px", fontWeight: 400, color: "#1c1917" }}
-            className="mb-10"
-          >
-            Как проходит сессия
-          </h2>
+      {/* HOW IT WORKS */}
+      <section className="py-24 bg-stone-50">
+        <div className="w-full max-w-5xl mx-auto px-6">
+          <div className="mb-14">
+            <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-3">
+              Процесс
+            </p>
+            <h2 className="font-display text-3xl md:text-4xl font-light text-stone-900">
+              Как проходит сессия
+            </h2>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((s) => (
               <div key={s.num}>
-                <p style={{ fontSize: "36px", fontWeight: 300, color: "#e7e5e4", lineHeight: 1 }} className="mb-3 select-none">
+                <div className="font-display text-6xl font-light text-stone-200 leading-none mb-4 select-none">
                   {s.num}
-                </p>
-                <p style={{ fontSize: "15px", fontWeight: 600, color: "#1c1917" }} className="mb-1">
-                  {s.title}
-                </p>
-                <p style={{ fontSize: "14px", color: "#78716c", lineHeight: 1.6 }}>{s.desc}</p>
+                </div>
+                <h3 className="font-semibold text-stone-900 mb-2">{s.title}</h3>
+                <p className="text-sm text-stone-500 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ОТЗЫВ */}
-      <section className="py-16 bg-stone-50">
-        <div className="w-full max-w-2xl mx-auto px-5">
-          <blockquote
-            style={{
-              fontFamily: "'Cormorant', Georgia, serif",
-              fontSize: "18px",
-              fontStyle: "italic",
-              fontWeight: 400,
-              color: "#57534e",
-              lineHeight: 1.8,
-            }}
-            className="mb-4"
-          >
+      {/* REVIEW */}
+      <section className="py-24 bg-white">
+        <div className="w-full max-w-3xl mx-auto px-6 text-center">
+          <div className="mb-8">
+            <Icon name="Quote" size={32} className="text-stone-200 mx-auto" />
+          </div>
+          <blockquote className="font-display text-xl md:text-2xl font-light text-stone-700 leading-relaxed mb-8 italic">
             «Спартак помогает не просто успокоиться — он учит слышать себя даже
             в хаосе. После его сессий находишь решения, которые раньше казались
             неочевидными»
           </blockquote>
-          <p style={{ fontSize: "13px", color: "#a8a29e" }}>— отзыв клиента</p>
-        </div>
-      </section>
-
-      {/* СТОИМОСТЬ */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="w-full max-w-5xl mx-auto px-5">
-          <h2
-            style={{ fontFamily: "'Cormorant', Georgia, serif", fontSize: "28px", fontWeight: 400, color: "#1c1917" }}
-            className="mb-8"
-          >
-            Стоимость
-          </h2>
-          <div className="flex flex-col sm:flex-row gap-5 max-w-2xl">
-            <div className="flex-1 p-6 rounded-xl border border-stone-200">
-              <p style={{ fontSize: "13px", color: "#a8a29e" }} className="mb-2">Индивидуальная сессия</p>
-              <p style={{ fontSize: "32px", fontWeight: 700, color: "#1c1917", lineHeight: 1 }} className="mb-1">
-                2 700 <span style={{ fontSize: "20px" }}>₽</span>
-              </p>
-              <p style={{ fontSize: "14px", color: "#78716c" }}>60–90 минут · онлайн</p>
-            </div>
-            <div className="flex-1 p-6 rounded-xl bg-stone-50 border border-stone-200">
-              <p style={{ fontSize: "13px", color: "#a8a29e" }} className="mb-2">Первая встреча</p>
-              <p style={{ fontSize: "32px", fontWeight: 700, color: "#1c1917", lineHeight: 1 }} className="mb-1">
-                Бесплатно
-              </p>
-              <p style={{ fontSize: "14px", color: "#78716c" }}>20 минут · обсудим ваш запрос</p>
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-3 mt-8">
-            <a
-              href={TG_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: "15px", background: "#1c1917", color: "#fff" }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
-            >
-              <Icon name="Send" size={16} />
-              Записаться в Telegram
-            </a>
-            <a
-              href={MAX_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ fontSize: "15px", background: "#fff", color: "#1c1917", border: "1px solid #d6d3d1" }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium hover:bg-stone-50 transition-colors"
-            >
-              <Icon name="MessageCircle" size={16} />
-              Записаться в Макс
-            </a>
+          <div className="flex items-center justify-center gap-2">
+            <div className="w-8 h-px bg-stone-300" />
+            <p className="text-sm text-stone-400">Отзыв клиента</p>
+            <div className="w-8 h-px bg-stone-300" />
           </div>
         </div>
       </section>
 
-      {/* ПОДВАЛ */}
-      <footer style={{ borderTop: "1px solid #e7e5e4", background: "#fafaf9" }} className="py-10">
-        <div className="w-full max-w-5xl mx-auto px-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+      {/* PRICE */}
+      <section className="py-24 bg-stone-900 text-stone-50">
+        <div className="w-full max-w-5xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <p style={{ fontSize: "15px", fontWeight: 600, color: "#1c1917" }} className="mb-1">
+              <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-3">
+                Стоимость
+              </p>
+              <h2 className="font-display text-3xl md:text-4xl font-light text-stone-50 mb-8">
+                Одна сессия — один шаг к ясности
+              </h2>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 p-5 rounded-xl bg-stone-800 border border-stone-700">
+                  <Icon name="Clock" size={20} className="text-stone-400 mt-0.5 shrink-0" />
+                  <div className="flex-1">
+                    <p className="font-semibold text-stone-100">Сессия 60–90 минут</p>
+                    <p className="text-stone-400 text-sm mt-0.5">Онлайн, в удобное время</p>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <p className="text-2xl font-semibold text-stone-50">2 700 ₽</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-5 rounded-xl bg-stone-800 border border-stone-700">
+                  <Icon name="Gift" size={20} className="text-stone-400 mt-0.5 shrink-0" />
+                  <div className="flex-1">
+                    <p className="font-semibold text-stone-100">Первые 20 минут</p>
+                    <p className="text-stone-400 text-sm mt-0.5">Бесплатно — обсудим ваш запрос</p>
+                  </div>
+                  <div className="shrink-0">
+                    <span className="text-sm font-medium text-stone-300 bg-stone-700 px-3 py-1 rounded-full">
+                      Бесплатно
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col items-start md:items-end">
+              <p className="text-stone-400 text-sm mb-6 max-w-xs md:text-right">
+                Напишите мне — и мы договоримся о времени первой бесплатной
+                встречи
+              </p>
+              <div className="flex flex-col gap-3 w-full sm:w-auto items-stretch md:items-end">
+                <a
+                  href={TG_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 bg-stone-50 text-stone-900 px-8 py-4 rounded-full text-base font-medium hover:bg-white transition-colors duration-200"
+                >
+                  <Icon name="Send" size={18} />
+                  Записаться в Telegram
+                </a>
+                <a
+                  href={MAX_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 bg-stone-800 text-stone-200 border border-stone-700 px-8 py-4 rounded-full text-base font-medium hover:bg-stone-700 transition-colors duration-200"
+                >
+                  <Icon name="MessageCircle" size={18} />
+                  Записаться в Макс
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-12 bg-stone-100 border-t border-stone-200">
+        <div className="w-full max-w-5xl mx-auto px-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div>
+              <p className="font-semibold text-stone-900 text-lg mb-1">
                 Спартак Захаров
               </p>
-              <p style={{ fontSize: "13px", color: "#78716c" }}>
+              <p className="text-sm text-stone-500">
                 Коуч по тревожности и принятию решений
               </p>
             </div>
-            <div className="flex flex-col gap-2" style={{ fontSize: "13px", color: "#78716c" }}>
-              <a href="tel:+79969971527" className="hover:text-stone-900 transition-colors">
+            <div className="flex flex-col sm:items-end gap-2">
+              <a
+                href="tel:+79969971527"
+                className="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors text-sm"
+              >
+                <Icon name="Phone" size={15} />
                 +7 996 997 15 27
               </a>
-              <a href={TG_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-stone-900 transition-colors">
-                Telegram: @spartakmihailovich
+              <a
+                href={TG_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors text-sm"
+              >
+                <Icon name="Send" size={15} />
+                @spartakmihailovich
               </a>
-              <a href={MAX_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-stone-900 transition-colors">
+              <a
+                href={MAX_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors text-sm"
+              >
+                <Icon name="MessageCircle" size={15} />
                 Макс
               </a>
             </div>
           </div>
         </div>
       </footer>
-
     </main>
   );
 };
