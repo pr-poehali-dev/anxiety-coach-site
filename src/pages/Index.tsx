@@ -247,17 +247,26 @@ const Index = () => {
             Макс
           </a>
         </div>
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Написать"
-          className={`inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-5 py-3.5 rounded-full shadow-xl hover:bg-stone-700 transition-colors duration-200 ${
-            open ? "" : "animate-pulse-soft"
-          }`}
-        >
-          <Icon name={open ? "X" : "MessageSquare"} size={18} />
-          <span className="text-sm font-medium">{open ? "Закрыть" : "Написать"}</span>
-        </button>
+        <div className="relative">
+          {!open && (
+            <>
+              <span className="absolute inset-0 rounded-full bg-stone-900 animate-ripple-soft pointer-events-none" />
+              <span
+                className="absolute inset-0 rounded-full bg-stone-900 animate-ripple-soft pointer-events-none"
+                style={{ animationDelay: "1.75s" }}
+              />
+            </>
+          )}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Написать"
+            className="relative inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-5 py-3.5 rounded-full shadow-xl hover:bg-stone-700 transition-colors duration-200"
+          >
+            <Icon name={open ? "X" : "MessageSquare"} size={18} />
+            <span className="text-sm font-medium">{open ? "Закрыть" : "Написать"}</span>
+          </button>
+        </div>
       </div>
     </main>
   );

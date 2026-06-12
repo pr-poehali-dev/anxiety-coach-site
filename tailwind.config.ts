@@ -90,16 +90,15 @@ export default {
 						height: '0'
 					}
 				},
-				'pulse-soft': {
-					'0%': { boxShadow: '0 0 0 0 rgba(28,25,23,0.12)' },
-					'70%': { boxShadow: '0 0 0 6px rgba(28,25,23,0)' },
-					'100%': { boxShadow: '0 0 0 0 rgba(28,25,23,0)' }
+				'ripple-soft': {
+					'0%': { transform: 'scale(1)', opacity: '0.35' },
+					'100%': { transform: 'scale(1.8)', opacity: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-soft': 'pulse-soft 4s ease-in-out infinite'
+				'ripple-soft': 'ripple-soft 3.5s ease-out infinite'
 			}
 		}
 	},
