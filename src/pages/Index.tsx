@@ -25,16 +25,11 @@ const Index = () => {
   return (
     <main className="font-body bg-stone-50 text-stone-900 min-h-screen">
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center">
+      <section className="relative flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-stone-100 via-stone-50 to-white" />
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-20">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="order-2 md:order-1">
-              <div className="inline-block mb-6">
-                <span className="text-xs font-medium tracking-widest uppercase text-stone-400 border border-stone-200 px-4 py-2 rounded-full">
-                  Коучинг онлайн
-                </span>
-              </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 leading-tight mb-6">
                 Когда внутри хаос, а решения не видно
               </h1>
@@ -76,10 +71,8 @@ const Index = () => {
                   />
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-5 py-3 shadow-lg border border-stone-100">
-                  <p className="text-xs text-stone-400 mb-0.5">Спартак Захаров</p>
-                  <p className="text-sm font-semibold text-stone-900">
-                    Коуч
-                  </p>
+                  <p className="text-sm font-semibold text-stone-900">Спартак Захаров</p>
+                  <p className="text-xs text-stone-400 mt-0.5">Коучинг онлайн</p>
                 </div>
               </div>
             </div>
@@ -267,6 +260,18 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* FLOATING BUTTON */}
+      <a
+        href={TG_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Написать в Telegram"
+        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-5 py-3.5 rounded-full shadow-xl hover:bg-stone-700 transition-colors duration-200"
+      >
+        <Icon name="Send" size={18} />
+        <span className="hidden sm:inline text-sm font-medium">Написать</span>
+      </a>
     </main>
   );
 };
