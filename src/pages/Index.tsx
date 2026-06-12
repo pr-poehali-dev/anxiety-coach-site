@@ -50,7 +50,7 @@ const Index = () => {
                 Помогаю успокоить ум, вернуть ясность и найти выход. Без
                 шаблонов, без магии, без лишних слов.
               </p>
-              <p className="text-sm text-stone-400">Первые 20 минут — бесплатно</p>
+              <p className="text-sm text-stone-400">20 минут — знакомство без оплаты</p>
             </div>
             <div className="order-1 md:order-2 flex justify-center md:justify-end">
               <div className="relative">
@@ -64,6 +64,9 @@ const Index = () => {
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-5 py-3 shadow-lg border border-stone-100">
                   <p className="text-sm font-semibold text-stone-900">Спартак Захаров</p>
                   <p className="text-xs text-stone-400 mt-0.5">Коучинг онлайн</p>
+                  <a href="tel:+79969971527" className="block text-xs text-stone-400 hover:text-stone-700 transition-colors">
+                    +7 996 997 15 27
+                  </a>
                 </div>
               </div>
             </div>
@@ -161,8 +164,7 @@ const Index = () => {
               Одна сессия — один шаг к ясности
             </h2>
             <p className="text-stone-400 leading-relaxed">
-              Напишите мне — и мы спокойно договоримся о времени первой
-              бесплатной встречи.
+              Напишите мне — и мы спокойно договоримся о времени первой встречи.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
@@ -174,8 +176,9 @@ const Index = () => {
             </div>
             <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-stone-800 border border-stone-700">
               <Icon name="Gift" size={22} className="text-stone-400 mb-4" />
-              <p className="text-3xl font-semibold text-stone-50 mb-2">Бесплатно</p>
-              <p className="font-medium text-stone-100 mb-1">Первые 20 минут</p>
+              <p className="text-xl font-semibold text-stone-50 mb-2 leading-tight">
+                20 минут — знакомство без оплаты
+              </p>
               <p className="text-sm text-stone-400">Обсудим ваш запрос</p>
             </div>
           </div>
@@ -197,24 +200,6 @@ const Index = () => {
               >
                 <Icon name="Phone" size={15} />
                 +7 996 997 15 27
-              </a>
-              <a
-                href={TG_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors text-sm"
-              >
-                <Icon name="Send" size={15} />
-                @spartakmihailovich
-              </a>
-              <a
-                href={MAX_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors text-sm"
-              >
-                <Icon name="MessageCircle" size={15} />
-                Макс
               </a>
             </div>
           </div>
