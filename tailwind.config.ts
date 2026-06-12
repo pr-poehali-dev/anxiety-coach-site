@@ -91,15 +91,15 @@ export default {
 					}
 				},
 				'pulse-soft': {
-					'0%': { boxShadow: '0 0 0 0 rgba(28,25,23,0.4)' },
-					'70%': { boxShadow: '0 0 0 12px rgba(28,25,23,0)' },
+					'0%': { boxShadow: '0 0 0 0 rgba(28,25,23,0.12)' },
+					'70%': { boxShadow: '0 0 0 6px rgba(28,25,23,0)' },
 					'100%': { boxShadow: '0 0 0 0 rgba(28,25,23,0)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'pulse-soft': 'pulse-soft 2.2s ease-in-out infinite'
+				'pulse-soft': 'pulse-soft 4s ease-in-out infinite'
 			}
 		}
 	},

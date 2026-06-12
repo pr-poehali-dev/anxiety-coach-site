@@ -71,15 +71,41 @@ const Index = () => {
         </div>
       </section>
 
-      {/* PROBLEMS */}
+      {/* ABOUT */}
       <section className="py-20 md:py-24 bg-white">
+        <div className="w-full max-w-3xl mx-auto px-6">
+          <SectionTitle label="Обо мне" title="Кто я и как работаю" />
+          <p className="text-lg text-stone-500 leading-relaxed mb-10">
+            Я помогаю людям выбираться из тревоги и неопределённости — спокойно,
+            без давления и готовых рецептов. Моя задача не дать совет, а помочь
+            вам услышать себя и найти собственное решение.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div>
+              <p className="font-display text-4xl font-light text-stone-900 mb-1">5+ лет</p>
+              <p className="text-sm text-stone-500">практики в коучинге</p>
+            </div>
+            <div>
+              <p className="font-display text-4xl font-light text-stone-900 mb-1">300+</p>
+              <p className="text-sm text-stone-500">проведённых сессий</p>
+            </div>
+            <div>
+              <p className="font-display text-4xl font-light text-stone-900 mb-1">Онлайн</p>
+              <p className="text-sm text-stone-500">из любой точки мира</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEMS */}
+      <section className="py-20 md:py-24 bg-stone-50">
         <div className="w-full max-w-5xl mx-auto px-6">
           <SectionTitle label="Ситуации" title="Когда стоит обратиться" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {problems.map((p) => (
               <div
                 key={p.title}
-                className="group h-full p-7 rounded-2xl border border-stone-100 hover:border-stone-200 hover:shadow-md transition-all duration-200 bg-stone-50"
+                className="group h-full p-7 rounded-2xl border border-stone-200 hover:border-stone-300 hover:shadow-md transition-all duration-200 bg-white"
               >
                 <div className="w-10 h-10 rounded-xl bg-stone-100 group-hover:bg-stone-200 flex items-center justify-center mb-5 transition-colors">
                   <Icon name={p.icon} size={20} className="text-stone-600" />
