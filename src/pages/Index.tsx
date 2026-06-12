@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const AVATAR_URL =
@@ -22,6 +23,7 @@ const steps = [
 ];
 
 const Index = () => {
+  const [open, setOpen] = useState(false);
   return (
     <main className="font-body bg-stone-50 text-stone-900 min-h-screen">
       {/* HERO */}
@@ -37,27 +39,7 @@ const Index = () => {
                 Помогаю успокоить ум, вернуть ясность и найти выход. Без
                 шаблонов, без магии, без лишних слов.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href={TG_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-stone-900 text-stone-50 px-7 py-4 rounded-full text-base font-medium hover:bg-stone-700 transition-colors duration-200"
-                >
-                  <Icon name="Send" size={18} />
-                  Написать в Telegram
-                </a>
-                <a
-                  href={MAX_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-white text-stone-900 border border-stone-200 px-7 py-4 rounded-full text-base font-medium hover:bg-stone-50 transition-colors duration-200"
-                >
-                  <Icon name="MessageCircle" size={18} />
-                  Написать в Макс
-                </a>
-              </div>
-              <p className="text-xs text-stone-400 mt-4">
+              <p className="text-xs text-stone-400">
                 Первые 20 минут — бесплатно
               </p>
             </div>
@@ -189,30 +171,10 @@ const Index = () => {
               </div>
             </div>
             <div className="flex flex-col items-start md:items-end">
-              <p className="text-stone-400 text-sm mb-6 max-w-xs md:text-right">
+              <p className="text-stone-400 text-sm max-w-xs md:text-right">
                 Напишите мне — и мы договоримся о времени первой бесплатной
                 встречи
               </p>
-              <div className="flex flex-col gap-3 w-full sm:w-auto items-stretch md:items-end">
-                <a
-                  href={TG_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-stone-50 text-stone-900 px-8 py-4 rounded-full text-base font-medium hover:bg-white transition-colors duration-200"
-                >
-                  <Icon name="Send" size={18} />
-                  Записаться в Telegram
-                </a>
-                <a
-                  href={MAX_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-stone-800 text-stone-200 border border-stone-700 px-8 py-4 rounded-full text-base font-medium hover:bg-stone-700 transition-colors duration-200"
-                >
-                  <Icon name="MessageCircle" size={18} />
-                  Записаться в Макс
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -262,16 +224,41 @@ const Index = () => {
       </footer>
 
       {/* FLOATING BUTTON */}
-      <a
-        href={TG_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Написать в Telegram"
-        className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-5 py-3.5 rounded-full shadow-xl hover:bg-stone-700 transition-colors duration-200"
-      >
-        <Icon name="Send" size={18} />
-        <span className="hidden sm:inline text-sm font-medium">Написать</span>
-      </a>
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+        <div
+          className={`flex flex-col items-end gap-3 transition-all duration-200 ${
+            open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+          }`}
+        >
+          <a
+            href={TG_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-white text-stone-900 border border-stone-200 px-5 py-3 rounded-full shadow-lg text-sm font-medium hover:bg-stone-50 transition-colors"
+          >
+            <Icon name="Send" size={16} />
+            Telegram
+          </a>
+          <a
+            href={MAX_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-white text-stone-900 border border-stone-200 px-5 py-3 rounded-full shadow-lg text-sm font-medium hover:bg-stone-50 transition-colors"
+          >
+            <Icon name="MessageCircle" size={16} />
+            Макс
+          </a>
+        </div>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Написать"
+          className="inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-5 py-3.5 rounded-full shadow-xl hover:bg-stone-700 transition-colors duration-200"
+        >
+          <Icon name={open ? "X" : "MessageSquare"} size={18} />
+          <span className="text-sm font-medium">{open ? "Закрыть" : "Написать"}</span>
+        </button>
+      </div>
     </main>
   );
 };
