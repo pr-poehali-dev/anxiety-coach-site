@@ -22,26 +22,35 @@ const steps = [
   { num: "04", title: "Закрепление", desc: "Фиксируем результат и договариваемся о следующем шаге." },
 ];
 
+const SectionTitle = ({ label, title, light }: { label: string; title: string; light?: boolean }) => (
+  <div className="mb-14">
+    <p className={`text-xs font-medium tracking-widest uppercase mb-3 ${light ? "text-stone-400" : "text-stone-400"}`}>
+      {label}
+    </p>
+    <h2 className={`font-display text-3xl md:text-4xl font-light ${light ? "text-stone-50" : "text-stone-900"}`}>
+      {title}
+    </h2>
+  </div>
+);
+
 const Index = () => {
   const [open, setOpen] = useState(false);
+
   return (
     <main className="font-body bg-stone-50 text-stone-900 min-h-screen">
       {/* HERO */}
-      <section className="relative flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-stone-100 via-stone-50 to-white" />
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-12 md:py-20">
+      <section className="relative bg-gradient-to-br from-stone-100 via-stone-50 to-white">
+        <div className="w-full max-w-5xl mx-auto px-6 py-20 md:py-28">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div className="order-2 md:order-1">
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 leading-tight mb-6">
                 Когда внутри хаос, а решения не видно
               </h1>
-              <p className="text-lg text-stone-500 leading-relaxed mb-8 max-w-md">
+              <p className="text-lg text-stone-500 leading-relaxed mb-6 max-w-md">
                 Помогаю успокоить ум, вернуть ясность и найти выход. Без
                 шаблонов, без магии, без лишних слов.
               </p>
-              <p className="text-xs text-stone-400">
-                Первые 20 минут — бесплатно
-              </p>
+              <p className="text-sm text-stone-400">Первые 20 минут — бесплатно</p>
             </div>
             <div className="order-1 md:order-2 flex justify-center md:justify-end">
               <div className="relative">
@@ -63,21 +72,14 @@ const Index = () => {
       </section>
 
       {/* PROBLEMS */}
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-24 bg-white">
         <div className="w-full max-w-5xl mx-auto px-6">
-          <div className="mb-14">
-            <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-3">
-              Ситуации
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-light text-stone-900">
-              Когда стоит обратиться
-            </h2>
-          </div>
+          <SectionTitle label="Ситуации" title="Когда стоит обратиться" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {problems.map((p) => (
               <div
                 key={p.title}
-                className="group p-7 rounded-2xl border border-stone-100 hover:border-stone-200 hover:shadow-md transition-all duration-200 bg-stone-50"
+                className="group h-full p-7 rounded-2xl border border-stone-100 hover:border-stone-200 hover:shadow-md transition-all duration-200 bg-stone-50"
               >
                 <div className="w-10 h-10 rounded-xl bg-stone-100 group-hover:bg-stone-200 flex items-center justify-center mb-5 transition-colors">
                   <Icon name={p.icon} size={20} className="text-stone-600" />
@@ -91,16 +93,9 @@ const Index = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-24 bg-stone-50">
+      <section className="py-20 md:py-24 bg-stone-50">
         <div className="w-full max-w-5xl mx-auto px-6">
-          <div className="mb-14">
-            <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-3">
-              Процесс
-            </p>
-            <h2 className="font-display text-3xl md:text-4xl font-light text-stone-900">
-              Как проходит сессия
-            </h2>
-          </div>
+          <SectionTitle label="Процесс" title="Как проходит сессия" />
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((s) => (
               <div key={s.num}>
@@ -116,11 +111,9 @@ const Index = () => {
       </section>
 
       {/* REVIEW */}
-      <section className="py-24 bg-white">
+      <section className="py-20 md:py-24 bg-white">
         <div className="w-full max-w-3xl mx-auto px-6 text-center">
-          <div className="mb-8">
-            <Icon name="Quote" size={32} className="text-stone-200 mx-auto" />
-          </div>
+          <Icon name="Quote" size={32} className="text-stone-200 mx-auto mb-8" />
           <blockquote className="font-display text-xl md:text-2xl font-light text-stone-700 leading-relaxed mb-8 italic">
             «Спартак помогает не просто успокоиться — он учит слышать себя даже
             в хаосе. После его сессий находишь решения, которые раньше казались
@@ -135,46 +128,29 @@ const Index = () => {
       </section>
 
       {/* PRICE */}
-      <section className="py-24 bg-stone-900 text-stone-50">
+      <section className="py-20 md:py-24 bg-stone-900 text-stone-50">
         <div className="w-full max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-xs font-medium tracking-widest uppercase text-stone-400 mb-3">
-                Стоимость
-              </p>
-              <h2 className="font-display text-3xl md:text-4xl font-light text-stone-50 mb-8">
-                Одна сессия — один шаг к ясности
-              </h2>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4 p-5 rounded-xl bg-stone-800 border border-stone-700">
-                  <Icon name="Clock" size={20} className="text-stone-400 mt-0.5 shrink-0" />
-                  <div className="flex-1">
-                    <p className="font-semibold text-stone-100">Сессия 60–90 минут</p>
-                    <p className="text-stone-400 text-sm mt-0.5">Онлайн, в удобное время</p>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <p className="text-2xl font-semibold text-stone-50">2 700 ₽</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4 p-5 rounded-xl bg-stone-800 border border-stone-700">
-                  <Icon name="Gift" size={20} className="text-stone-400 mt-0.5 shrink-0" />
-                  <div className="flex-1">
-                    <p className="font-semibold text-stone-100">Первые 20 минут</p>
-                    <p className="text-stone-400 text-sm mt-0.5">Бесплатно — обсудим ваш запрос</p>
-                  </div>
-                  <div className="shrink-0">
-                    <span className="text-sm font-medium text-stone-300 bg-stone-700 px-3 py-1 rounded-full">
-                      Бесплатно
-                    </span>
-                  </div>
-                </div>
-              </div>
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-light text-stone-50 mb-4">
+              Одна сессия — один шаг к ясности
+            </h2>
+            <p className="text-stone-400 leading-relaxed">
+              Напишите мне — и мы спокойно договоримся о времени первой
+              бесплатной встречи.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
+            <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-stone-800 border border-stone-700">
+              <Icon name="Clock" size={22} className="text-stone-400 mb-4" />
+              <p className="text-3xl font-semibold text-stone-50 mb-2">2 700 ₽</p>
+              <p className="font-medium text-stone-100 mb-1">Сессия 60–90 минут</p>
+              <p className="text-sm text-stone-400">Онлайн, в удобное время</p>
             </div>
-            <div className="flex flex-col items-start md:items-end">
-              <p className="text-stone-400 text-sm max-w-xs md:text-right">
-                Напишите мне — и мы договоримся о времени первой бесплатной
-                встречи
-              </p>
+            <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-stone-800 border border-stone-700">
+              <Icon name="Gift" size={22} className="text-stone-400 mb-4" />
+              <p className="text-3xl font-semibold text-stone-50 mb-2">Бесплатно</p>
+              <p className="font-medium text-stone-100 mb-1">Первые 20 минут</p>
+              <p className="text-sm text-stone-400">Обсудим ваш запрос</p>
             </div>
           </div>
         </div>
@@ -185,12 +161,8 @@ const Index = () => {
         <div className="w-full max-w-5xl mx-auto px-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div>
-              <p className="font-semibold text-stone-900 text-lg mb-1">
-                Спартак Захаров
-              </p>
-              <p className="text-sm text-stone-500">
-                Коуч по тревожности и принятию решений
-              </p>
+              <p className="font-semibold text-stone-900 text-lg mb-1">Спартак Захаров</p>
+              <p className="text-sm text-stone-500">Коуч по тревожности и принятию решений</p>
             </div>
             <div className="flex flex-col sm:items-end gap-2">
               <a
@@ -253,7 +225,9 @@ const Index = () => {
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label="Написать"
-          className="inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-5 py-3.5 rounded-full shadow-xl hover:bg-stone-700 transition-colors duration-200"
+          className={`inline-flex items-center gap-2 bg-stone-900 text-stone-50 px-5 py-3.5 rounded-full shadow-xl hover:bg-stone-700 transition-colors duration-200 ${
+            open ? "" : "animate-pulse-soft"
+          }`}
         >
           <Icon name={open ? "X" : "MessageSquare"} size={18} />
           <span className="text-sm font-medium">{open ? "Закрыть" : "Написать"}</span>
