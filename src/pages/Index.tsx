@@ -46,11 +46,23 @@ const Index = () => {
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-stone-900 leading-tight mb-6">
                 Когда внутри хаос, а решения не видно
               </h1>
-              <p className="text-lg text-stone-500 leading-relaxed mb-6 max-w-md">
+              <p className="text-lg text-stone-500 leading-relaxed mb-4 max-w-md">
                 Помогаю успокоить ум, вернуть ясность и найти выход. Без
                 шаблонов, без магии, без лишних слов.
               </p>
-              <p className="text-sm text-stone-400">20 минут — знакомство без оплаты</p>
+              <p className="text-sm text-stone-400 mb-6" style={{ fontSize: "14px" }}>
+                6+ лет коучинга · 300+ сессий · 10+ лет йоги
+              </p>
+              <p className="text-sm text-stone-400 mb-6">20 минут — знакомство без оплаты</p>
+              <a
+                href={TG_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-stone-900 text-stone-50 hover:bg-stone-700 transition-colors no-underline"
+                style={{ fontSize: "16px", padding: "14px 36px", borderRadius: "100px" }}
+              >
+                Записаться на знакомство
+              </a>
             </div>
             <div className="order-1 md:order-2 flex justify-center md:justify-end">
               <div className="relative">
@@ -150,7 +162,7 @@ const Index = () => {
           </blockquote>
           <div className="flex items-center justify-center gap-2">
             <div className="w-8 h-px bg-stone-300" />
-            <p className="text-sm text-stone-400">Отзыв клиента</p>
+            <p className="text-sm text-stone-400">— Анна, предприниматель, работа с 2020</p>
             <div className="w-8 h-px bg-stone-300" />
           </div>
         </div>
@@ -167,7 +179,7 @@ const Index = () => {
               Напишите мне — и мы спокойно договоримся о времени первой встречи.
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
+          <div className="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
             <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-stone-800 border border-stone-700">
               <Icon name="Clock" size={22} className="text-stone-400 mb-4" />
               <p className="text-3xl font-semibold text-stone-50 mb-2">2 700 ₽</p>
@@ -181,6 +193,23 @@ const Index = () => {
               </p>
               <p className="text-sm text-stone-400">Обсудим ваш запрос</p>
             </div>
+            <div className="flex flex-col items-center text-center p-8 rounded-2xl bg-stone-800 border border-stone-700">
+              <Icon name="Package" size={22} className="text-stone-400 mb-4" />
+              <p className="text-3xl font-semibold text-stone-50 mb-2">12 000 ₽</p>
+              <p className="font-medium text-stone-100 mb-1">5 сессий</p>
+              <p className="text-sm text-stone-400">Экономия 1 500 ₽</p>
+            </div>
+          </div>
+          <div className="text-center mt-10">
+            <a
+              href={TG_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-stone-50 text-stone-900 hover:bg-white transition-colors no-underline"
+              style={{ fontSize: "16px", padding: "14px 36px", borderRadius: "100px" }}
+            >
+              Написать в Telegram
+            </a>
           </div>
         </div>
       </section>
@@ -200,6 +229,22 @@ const Index = () => {
               >
                 <Icon name="Phone" size={15} />
                 +7 996 997 15 27
+              </a>
+              <a
+                href="https://instagram.com/spartakmihailovich"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors text-sm"
+              >
+                <Icon name="Instagram" size={15} />
+                @spartakmihailovich
+              </a>
+              <a
+                href="mailto:almaznayaspina@gmail.com"
+                className="flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors text-sm"
+              >
+                <Icon name="Mail" size={15} />
+                almaznayaspina@gmail.com
               </a>
             </div>
           </div>
