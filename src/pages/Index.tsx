@@ -35,6 +35,15 @@ const SectionTitle = ({ label, title, light }: { label: string; title: string; l
 
 const Index = () => {
   const [open, setOpen] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [sent, setSent] = useState(false);
+
+  const handlePhoneSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!phone.trim()) return;
+    window.open(`${TG_LINK}?text=${encodeURIComponent(`Хочу записаться на знакомство. Мой телефон: ${phone}`)}`, "_blank");
+    setSent(true);
+  };
 
   return (
     <main className="font-body bg-stone-50 text-stone-900 min-h-screen">
@@ -50,19 +59,34 @@ const Index = () => {
                 Помогаю успокоить ум, вернуть ясность и найти выход. Без
                 шаблонов, без магии, без лишних слов.
               </p>
-              <p className="text-sm text-stone-400 mb-6" style={{ fontSize: "14px" }}>
+              <p className="text-sm text-stone-400 mb-8" style={{ fontSize: "14px" }}>
                 6+ лет коучинга · 300+ сессий · 10+ лет йоги
               </p>
-              <p className="text-sm text-stone-400 mb-6">20 минут — знакомство без оплаты</p>
-              <a
-                href={TG_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-stone-900 text-stone-50 hover:bg-stone-700 transition-colors no-underline"
-                style={{ fontSize: "16px", padding: "14px 36px", borderRadius: "100px" }}
-              >
-                Записаться на знакомство
-              </a>
+              {!sent ? (
+                <form onSubmit={handlePhoneSubmit} className="flex flex-col gap-3 max-w-sm">
+                  <div className="flex gap-2">
+                    <input
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="+7 (___) ___-__-__"
+                      className="flex-1 bg-white border border-stone-200 text-stone-900 placeholder-stone-400 rounded-full px-5 py-3.5 text-base outline-none focus:border-stone-400 transition-colors"
+                    />
+                    <button
+                      type="submit"
+                      className="bg-stone-900 text-stone-50 hover:bg-stone-700 transition-colors rounded-full px-6 py-3.5 text-base font-medium whitespace-nowrap"
+                    >
+                      Записаться
+                    </button>
+                  </div>
+                  <p className="text-sm text-stone-400 pl-1">Знакомство 20 мин · без оплаты</p>
+                </form>
+              ) : (
+                <div className="max-w-sm">
+                  <p className="text-base text-stone-700 mb-1 font-medium">Спасибо! Открываю Telegram...</p>
+                  <p className="text-sm text-stone-400">Спартак свяжется с вами в ближайшее время.</p>
+                </div>
+              )}
             </div>
             <div className="order-1 md:order-2 flex justify-center md:justify-end">
               <div className="relative">
@@ -75,10 +99,7 @@ const Index = () => {
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-5 py-3 shadow-lg border border-stone-100">
                   <p className="text-sm font-semibold text-stone-900">Спартак Захаров</p>
-                  <p className="text-xs text-stone-400 mt-0.5">Коучинг онлайн</p>
-                  <a href="tel:+79969971527" className="block text-xs text-stone-400 hover:text-stone-700 transition-colors">
-                    +7 996 997 15 27
-                  </a>
+                  <p className="text-xs text-stone-400 mt-0.5">5 лет коучинга · 500+ сессий</p>
                 </div>
               </div>
             </div>
