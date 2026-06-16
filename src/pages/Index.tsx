@@ -59,9 +59,6 @@ const Index = () => {
                 Помогаю успокоить ум, вернуть ясность и найти выход. Без
                 шаблонов, без магии, без лишних слов.
               </p>
-              <p className="text-sm text-stone-400 mb-8" style={{ fontSize: "14px" }}>
-                6+ лет коучинга · 300+ сессий · 10+ лет йоги
-              </p>
               {!sent ? (
                 <form onSubmit={handlePhoneSubmit} className="flex flex-col gap-3 max-w-sm">
                   <div className="flex gap-2">
@@ -99,7 +96,7 @@ const Index = () => {
                 </div>
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-5 py-3 shadow-lg border border-stone-100">
                   <p className="text-sm font-semibold text-stone-900">Спартак Захаров</p>
-                  <p className="text-xs text-stone-400 mt-0.5">5 лет коучинга · 500+ сессий</p>
+                  <p className="text-xs text-stone-400 mt-0.5">Коуч по тревожности и принятию решений</p>
                 </div>
               </div>
             </div>
