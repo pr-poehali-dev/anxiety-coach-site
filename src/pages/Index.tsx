@@ -169,19 +169,31 @@ const Index = () => {
         </div>
       </section>
 
-      {/* REVIEW */}
+      {/* REVIEWS */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="w-full max-w-3xl mx-auto px-6 text-center">
-          <Icon name="Quote" size={32} className="text-stone-200 mx-auto mb-8" />
-          <blockquote className="font-display text-xl md:text-2xl font-light text-stone-700 leading-relaxed mb-8 italic">
-            «Спартак помогает не просто успокоиться — он учит слышать себя даже
-            в хаосе. После его сессий находишь решения, которые раньше казались
-            неочевидными»
-          </blockquote>
-          <div className="flex items-center justify-center gap-2">
-            <div className="w-8 h-px bg-stone-300" />
-            <p className="text-sm text-stone-400">— Анна, предприниматель, работа с 2020</p>
-            <div className="w-8 h-px bg-stone-300" />
+        <div className="w-full max-w-5xl mx-auto px-6">
+          <SectionTitle label="Отзывы" title="Что говорят клиенты" />
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="bg-white border border-stone-200 rounded-2xl p-8">
+              <Icon name="Quote" size={24} className="text-stone-200 mb-6" />
+              <blockquote className="font-display text-lg font-light text-stone-700 leading-relaxed italic mb-6">
+                «В первый месяц отбила стоимость наставничества, сидя в декрете. Когда грянул локдаун — перевела своё дело в онлайн с нуля. Спартак провёл за руку. Теперь я знаю на что способна.»
+              </blockquote>
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-px bg-stone-300" />
+                <p className="text-sm text-stone-400">— Ольга</p>
+              </div>
+            </div>
+            <div className="bg-white border border-stone-200 rounded-2xl p-8">
+              <Icon name="Quote" size={24} className="text-stone-200 mb-6" />
+              <blockquote className="font-display text-lg font-light text-stone-700 leading-relaxed italic mb-6">
+                «Спартак помогает не просто успокоиться — он учит слышать себя даже в хаосе. После его сессий находишь решения, которые раньше казались неочевидными.»
+              </blockquote>
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-px bg-stone-300" />
+                <p className="text-sm text-stone-400">— Владимир</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
