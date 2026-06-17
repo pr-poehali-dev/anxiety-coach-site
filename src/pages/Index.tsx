@@ -33,17 +33,72 @@ const SectionTitle = ({ label, title, light }: { label: string; title: string; l
   </div>
 );
 
-const Index = () => {
-  const [open, setOpen] = useState(false);
-  const [phone, setPhone] = useState("");
-  const [sent, setSent] = useState(false);
+const NOTIFY_URL = "https://functions.poehali.dev/bf54092e-43e5-4114-9ade-aa9f3a5b54a2";
 
-  const handlePhoneSubmit = (e: React.FormEvent) => {
+const LeadForm = ({ dark }: { dark?: boolean }) => {
+  const [phone, setPhone] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!phone.trim()) return;
-    window.open(`${TG_LINK}?text=${encodeURIComponent(`Хочу записаться на знакомство. Мой телефон: ${phone}`)}`, "_blank");
-    setSent(true);
+    setStatus("loading");
+    try {
+      await fetch(NOTIFY_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone, message: "Заявка с spartakcoach.ru" }),
+      });
+      setStatus("done");
+    } catch {
+      setStatus("error");
+    }
   };
+
+  if (status === "done") {
+    return (
+      <div className="max-w-sm">
+        <p className={`text-base font-medium mb-1 ${dark ? "text-stone-100" : "text-stone-700"}`}>Заявка отправлена!</p>
+        <p className={`text-sm ${dark ? "text-stone-400" : "text-stone-400"}`}>Спартак свяжется с вами в ближайшее время.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 max-w-sm">
+      <div className="flex gap-2">
+        <input
+          type="tel"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          placeholder="+7 ..."
+          required
+          className={`flex-1 border text-base outline-none rounded-full px-5 py-3.5 transition-colors placeholder-stone-400 ${
+            dark
+              ? "bg-stone-800 border-stone-700 text-stone-50 focus:border-stone-500"
+              : "bg-white border-stone-200 text-stone-900 focus:border-stone-400"
+          }`}
+        />
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className={`rounded-full px-6 py-3.5 text-base font-medium whitespace-nowrap transition-colors disabled:opacity-60 ${
+            dark
+              ? "bg-stone-50 text-stone-900 hover:bg-white"
+              : "bg-stone-900 text-stone-50 hover:bg-stone-700"
+          }`}
+        >
+          {status === "loading" ? "..." : "Записаться"}
+        </button>
+      </div>
+      {status === "error" && <p className="text-sm text-red-400 pl-1">Ошибка отправки. Попробуйте ещё раз.</p>}
+      <p className={`text-sm pl-1 ${dark ? "text-stone-400" : "text-stone-400"}`}>Знакомство 20 мин · без оплаты</p>
+    </form>
+  );
+};
+
+const Index = () => {
+  const [open, setOpen] = useState(false);
 
   return (
     <main className="font-body bg-stone-50 text-stone-900 min-h-screen">
@@ -59,31 +114,7 @@ const Index = () => {
                 Помогаю успокоить ум, вернуть ясность и найти выход. Без
                 шаблонов, без магии, без лишних слов.
               </p>
-              {!sent ? (
-                <form onSubmit={handlePhoneSubmit} className="flex flex-col gap-3 max-w-sm">
-                  <div className="flex gap-2">
-                    <input
-                      type="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="+7 (___) ___-__-__"
-                      className="flex-1 bg-white border border-stone-200 text-stone-900 placeholder-stone-400 rounded-full px-5 py-3.5 text-base outline-none focus:border-stone-400 transition-colors"
-                    />
-                    <button
-                      type="submit"
-                      className="bg-stone-900 text-stone-50 hover:bg-stone-700 transition-colors rounded-full px-6 py-3.5 text-base font-medium whitespace-nowrap"
-                    >
-                      Записаться
-                    </button>
-                  </div>
-                  <p className="text-sm text-stone-400 pl-1">Знакомство 20 мин · без оплаты</p>
-                </form>
-              ) : (
-                <div className="max-w-sm">
-                  <p className="text-base text-stone-700 mb-1 font-medium">Спасибо! Открываю Telegram...</p>
-                  <p className="text-sm text-stone-400">Спартак свяжется с вами в ближайшее время.</p>
-                </div>
-              )}
+              <LeadForm />
             </div>
             <div className="order-1 md:order-2 flex justify-center md:justify-end">
               <div className="relative">
@@ -230,15 +261,15 @@ const Index = () => {
               <p className="text-sm text-stone-400">Экономия 1 500 ₽</p>
             </div>
           </div>
-          <div className="text-center mt-10">
+          <div className="flex flex-col items-center mt-10 gap-4">
+            <LeadForm dark />
             <a
               href={TG_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-stone-50 text-stone-900 hover:bg-white transition-colors no-underline"
-              style={{ fontSize: "16px", padding: "14px 36px", borderRadius: "100px" }}
+              className="text-sm text-stone-400 hover:text-stone-200 transition-colors no-underline"
             >
-              Написать в Telegram
+              или написать в Telegram
             </a>
           </div>
         </div>
