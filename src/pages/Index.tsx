@@ -35,7 +35,7 @@ const SectionTitle = ({ label, title, light }: { label: string; title: string; l
 
 const NOTIFY_URL = "https://functions.poehali.dev/bf54092e-43e5-4114-9ade-aa9f3a5b54a2";
 
-const LeadForm = ({ dark }: { dark?: boolean }) => {
+const LeadForm = ({ dark, source = "Hero" }: { dark?: boolean; source?: string }) => {
   const [phone, setPhone] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
 
@@ -44,11 +44,15 @@ const LeadForm = ({ dark }: { dark?: boolean }) => {
     if (!phone.trim()) return;
     setStatus("loading");
     try {
-      await fetch(NOTIFY_URL, {
+      const res = await fetch(NOTIFY_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, message: "Заявка с spartakcoach.ru" }),
+        body: JSON.stringify({
+          phone,
+          message: `Заявка с spartakcoach.ru (${source})`,
+        }),
       });
+      if (!res.ok) throw new Error("bad status");
       setStatus("done");
     } catch {
       setStatus("error");
@@ -262,7 +266,7 @@ const Index = () => {
             </div>
           </div>
           <div className="flex flex-col items-center mt-10 gap-4">
-            <LeadForm dark />
+            <LeadForm dark source="Блок цен" />
             <a
               href={TG_LINK}
               target="_blank"
